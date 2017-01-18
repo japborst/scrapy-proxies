@@ -64,4 +64,4 @@ checking for site logo or some other significant element.
 If not - retry request with dont_filter=True
 
     if not hxs.select('//get/site/logo'):
-        yield Request(url=response.url, dont_filter=True)
+        yield Request(url=response.meta.get('redirect_urls')[0], dont_filter=True)
